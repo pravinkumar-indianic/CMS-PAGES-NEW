@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cms_pages', function (Blueprint $table) {
-            $table->ulid('id')->primary();
+//             $table->ulid('id')->primary();
+            $table->id();
             $table->string('title');
             $table->string('slug');
             $table->string('sub_title')->nullable();
