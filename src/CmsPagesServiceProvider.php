@@ -43,7 +43,7 @@ class CmsPagesServiceProvider extends ServiceProvider
                 });
 
             $this->commands([
-                CurrencyManagementCommand::class,
+                CmsPagesCommand::class,
             ]);
         }
 
