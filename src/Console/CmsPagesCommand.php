@@ -9,7 +9,7 @@ use Illuminate\Console\Command;
  *
  * @package Indianic\CmsPages\Console
  */
-class CmsPageesCommand extends Command
+class CmsPagesCommand extends Command
 {
     /**
      * The name and signature of the console command.
