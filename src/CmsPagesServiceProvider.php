@@ -7,12 +7,7 @@ use Laravel\Nova\Nova;
 use Laravel\Nova\Events\ServingNova;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\Facades\File;
-use Indianic\CmsPages\Console\CmsPagesCommand;
-
-
-
+use Illuminate\Support\Facades\Artisan;
 
 class CmsPagesServiceProvider extends ServiceProvider
 {
@@ -37,20 +32,18 @@ class CmsPagesServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
 
-            tap(new Filesystem(), function ($filesystem) {
-
-                $filesystem->copy(__DIR__ .'/../stubs/migrations/2023_01_19_045711_create_cmspages.stub', database_path('migrations/2023_01_19_045711_create_cmspages.php'));
-
-                File::isDirectory(app_path('Providers/DataProviders')) or File::makeDirectory(app_path('Providers/DataProviders'), 0777, true, true);
-
-                });
-
-            $this->commands([
-                CmsPagesCommand::class,
-            ]);
+            $this->loadMigrationsFrom(base_path('vendor/indianic/cms-pages/database/migrations'));
+            $path = 'vendor/indianic/cms-pages/database';
+            $migrationPath = $path."/migrations";
+            if (is_dir($migrationPath)) {
+                foreach (array_diff(scandir($migrationPath, SCANDIR_SORT_NONE), [".",".."]) as $migration) {
+                    Artisan::call('migrate', [
+                        '--path' => $migrationPath."/".$migration
+                    ]);
+                }
+            }
         }
-
-        // $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 
     }
 
