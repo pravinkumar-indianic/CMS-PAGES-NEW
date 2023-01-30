@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Trin4ik\NovaSwitcher\NovaSwitcher;
 
 class CmsPages extends Resource
 {
@@ -74,12 +75,7 @@ class CmsPages extends Resource
             Textarea::make('Meta Description','meta_description')
                     ->sortable(),  
             
-            Select::make('Status')->options([
-                        1 => 'Active',
-                        0 => 'Inactive',
-                    ])
-                 ->default(0)
-                 ->hideWhenUpdating(),
+            NovaSwitcher::make('Status'),
         ];
     }
 
