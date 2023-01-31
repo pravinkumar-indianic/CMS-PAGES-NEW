@@ -10,7 +10,7 @@ class CmsPolicy
     use HandlesAuthorization;
 
     /**
-     * Determine whether the user can view any currency management.
+     * Determine whether the user can view any cms pages.
      *
      * @param Admin $user
      * @return bool
