@@ -19,9 +19,9 @@ class CmsPagesServiceProvider extends ServiceProvider
      */
     public function boot()
     {   
-        $this->setModulePermissions();
+//         $this->setModulePermissions();
 
-        Gate::policy(\Indianic\CmsPages\Models\CmsPages::class, CmsPagesPolicy::class);
+//         Gate::policy(\Indianic\CmsPages\Models\CmsPages::class, CmsPagesPolicy::class);
 
         Nova::serving(function (ServingNova $event) {
 
