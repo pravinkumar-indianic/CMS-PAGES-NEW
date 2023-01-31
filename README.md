@@ -1,4 +1,16 @@
-Step 1: composer config repositories.cms-pages vcs https://gitlab.indianic.com/packages/nova/cms-pages.git
+CMS Page Listing
+======
 
-Step: 2: run this command
+
+Installation
+-----
+
+
+Step:- 1)
+-----
+
+```
+
 composer require indianic/cms-pages
+
+
