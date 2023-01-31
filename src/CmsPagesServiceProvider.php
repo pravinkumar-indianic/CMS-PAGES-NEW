@@ -8,7 +8,7 @@ use Laravel\Nova\Events\ServingNova;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\ServiceProvider;
 use Indianic\CmsPages\Nova\Resources\CmsPages;
-use Indianic\CmsPages\Policies\CmsPagesPolicy;
+use Indianic\CmsPages\Policies\CmsPolicy;
 
 class CmsPagesServiceProvider extends ServiceProvider
 {
@@ -21,7 +21,7 @@ class CmsPagesServiceProvider extends ServiceProvider
     {   
 //         $this->setModulePermissions();
 
-//         Gate::policy(\Indianic\CmsPages\Models\CmsPages::class, CmsPagesPolicy::class);
+//         Gate::policy(\Indianic\CmsPages\Models\CmsPages::class, CmsPolicy::class);
 
         Nova::serving(function (ServingNova $event) {
 
