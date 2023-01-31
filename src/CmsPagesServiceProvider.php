@@ -1,13 +1,14 @@
 <?php
 namespace Indianic\CmsPages;
 
+
+use Laravel\Nova\Nova;
+use Illuminate\Support\Facades\Gate;
+use Laravel\Nova\Events\ServingNova;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\ServiceProvider;
 use Indianic\CmsPages\Nova\Resources\CmsPages;
 use Indianic\CmsPages\Policies\CmsPagesPolicy;
-use Laravel\Nova\Nova;
-use Laravel\Nova\Events\ServingNova;
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Artisan;
 
 class CmsPagesServiceProvider extends ServiceProvider
 {
