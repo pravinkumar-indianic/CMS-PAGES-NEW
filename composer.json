@@ -11,7 +11,8 @@
         }
     ],
     "require": {
-        "laravel/nova": "^4.0"
+        "laravel/nova": "^4.0",
+         "trin4ik/nova-switcher": "^0.3.0"
     },
     "extra": {
         "laravel": {
