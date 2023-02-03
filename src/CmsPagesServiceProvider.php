@@ -69,28 +69,28 @@ class CmsPagesServiceProvider extends ServiceProvider
     {
         $existingPermissions = config('nova-permissions.permissions');
 
-        $existingPermissions['view cms-page'] = [
-            'display_name' => 'View cms page',
-            'description'  => 'Can view cms page',
+        $existingPermissions['view cms-pages'] = [
+            'display_name' => 'View cms pages',
+            'description'  => 'Can view cms pages',
+            'group'        => 'Cms Pages'
+        ];
+
+        $existingPermissions['create cms-pages'] = [
+            'display_name' => 'Create cms pages',
+            'description'  => 'Can create cms pages',
             'group'        => 'Cms Page'
         ];
 
-        $existingPermissions['create cms-page'] = [
-            'display_name' => 'Create cms page',
-            'description'  => 'Can create cms page',
-            'group'        => 'Cms Page'
+        $existingPermissions['update cms-pages'] = [
+            'display_name' => 'Update cms pages',
+            'description'  => 'Can update cms pages',
+            'group'        => 'Cms Pages'
         ];
 
-        $existingPermissions['update cms-page'] = [
-            'display_name' => 'Update cms page',
-            'description'  => 'Can update cms page',
-            'group'        => 'Cms Page'
-        ];
-
-        $existingPermissions['delete cms-page'] = [
-            'display_name' => 'Delete cms page',
-            'description'  => 'Can delete cms page',
-            'group'        => 'Cms Page'
+        $existingPermissions['delete cms-pages'] = [
+            'display_name' => 'Delete cms pages',
+            'description'  => 'Can delete cms pages',
+            'group'        => 'Cms Pages'
         ];
 
         \Config::set('nova-permissions.permissions', $existingPermissions);
