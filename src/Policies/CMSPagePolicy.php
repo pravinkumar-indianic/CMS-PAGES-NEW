@@ -1,11 +1,11 @@
 <?php
-namespace Indianic\CmsPages\Policies;
+namespace Indianic\CMSPages\Policies;
 
 use App\Models\Admin;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Auth\Access\Response;
 
-class CmsPolicy
+class CMSPagePolicy
 {
     use HandlesAuthorization;
 
@@ -21,29 +21,29 @@ class CmsPolicy
     }
 
     /**
-     * Determine whether the user can view the cms-pages.
+     * Determine whether the user can view the cms page.
      *
      * @param Admin $user
      * @return bool
      */
     public function view(Admin $user): bool
     {
-        return ( $user->hasPermissionTo('view cms-pages'));
+        return $user->hasPermissionTo('view cms-pages');
     }
 
     /**
-     * Determine whether the user can create cms-pages.
+     * Determine whether the user can create cms page.
      *
      * @param Admin $user
      * @return bool
      */
     public function create(Admin $user): bool
     {
-        return ( $user->hasPermissionTo('create cms-pages'));
+        return $user->hasPermissionTo('create cms-pages');
     }
 
     /**
-     * Determine whether the user can update the cms-pages.
+     * Determine whether the user can update the cms page.
      *
      * @param Admin $user
      * @return bool
@@ -54,11 +54,12 @@ class CmsPolicy
     }
 
     /**
-     * Determine whether the user can delete the cms-pages.
+     * Determine whether the user can delete the cms page.
      *
+     * @param Admin $user
      * @return Response|bool
      */
-    public function delete(): Response|bool
+    public function delete(Admin $user): Response|bool
     {
         return $user->hasPermissionTo('delete cms-pages');
     }
